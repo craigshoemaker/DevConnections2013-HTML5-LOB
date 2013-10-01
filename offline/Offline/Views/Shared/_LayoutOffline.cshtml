@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en" manifest="~/offline/manifest.appcache"> 
+@* Requires web.config setting: 
+    <system.webServer>
+        <modules runAllManagedModulesForAllRequests="true" /> *@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <main class="container">
+
+        @Html.Partial("TopNavigation")
+
+        @RenderBody()
+
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+        <!--
+        <script src="~/scripts/offlineUtility.js"></script>
+        <!-- -->
+
+        @RenderSection("scripts", required: false)
+
+        <!--
+        <script>
+            $(function() {
+
+                var
+                    showOnlineLayout = function() {
+                        $('.offline').fadeOut(function() {
+                            $('.online').fadeIn();
+                        });
+                    },
+
+                    showOfflineLayout = function() {
+                        $('.online').fadeOut(function() {
+                            $('.offline').fadeIn();
+                        });
+                    };
+
+                var offlineUtility =
+                    new OfflineUtility(showOnlineLayout, showOfflineLayout);
+            });
+
+        </script> 
+        <!-- -->
+
+    </main>
+</body>
+</html>

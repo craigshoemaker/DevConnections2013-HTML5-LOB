@@ -1,0 +1,28 @@
+﻿CACHE MANIFEST
+# debug
+
+@*
+# @AppendHash approach from @@ShirtlessKirk via http://bit.ly/12HlyCD
+# @Url.Content("/views/home/Index.cshtml").AppendHash(Request)
+# @Url.Content("/views/offline/Index.cshtml").AppendHash(Request)
+# @Url.Content("/views/offline/Fallback.cshtml").AppendHash(Request)
+# @Url.Content("/views/shared/_LayoutOffline.cshtml").AppendHash(Request)
+# @Url.Content("/content/site.css").AppendHash(Request)
+# @Url.Content("/content/bootstrap.min.css").AppendHash(Request)
+# @Url.Content("/scripts/offlineUtility.js").AppendHash(Request)
+# @Url.Content("/scripts/jquery-1.10.2.js").AppendHash(Request)
+# @Url.Content("/scripts/modernizr-2.6.2.js").AppendHash(Request)
+# @Url.Content("/scripts/offlineUtility.js").AppendHash(Request)
+# @Url.Content("/fonts/glyphicons-halflings-regular.eot").AppendHash(Request)
+# @Url.Content("/fonts/glyphicons-halflings-regular.svg").AppendHash(Request)
+# @Url.Content("/fonts/glyphicons-halflings-regular.ttf").AppendHash(Request)
+# @Url.Content("/fonts/glyphicons-halflings-regular.woff").AppendHash(Request)
+*@
+
+@Html.Partial("Manifest-Partial")
+
+@{
+    Layout = null;
+}
+
+@using Offline.Utilities

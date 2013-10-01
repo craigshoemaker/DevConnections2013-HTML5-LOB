@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Fallback";
+    Layout = "~/Views/Shared/_LayoutOffline.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="alert alert-warning">
+            <p><strong><i class="glyphicon glyphicon-exclamation-sign"></i> Offline: </strong>It looks like you lost a reliable connection to the web. While
+                many pages of the site aren't available to you right now, 
+                you can still go to the offline home page.</p>
+        </div>
+    </div>
+</div>
+
+<p><a href="/offline" class="btn btn-primary btn-lg">Go home</a></p>

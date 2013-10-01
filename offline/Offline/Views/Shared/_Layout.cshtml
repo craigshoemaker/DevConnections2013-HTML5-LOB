@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <main class="container">
+
+        @Html.Partial("TopNavigation")
+
+        @RenderBody()
+
+        @Scripts.Render("~/bundles/jquery")
+
+        @RenderSection("scripts", required: false)
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="Content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap-theme.css" rel="stylesheet" />
+    <style>
+        h1 {
+            margin-top:50px;
+        }
+
+        .inline {
+            display:inline;
+        }
+
+        .push-right {
+            margin-left: 15px;
+        }
+
+        input.small {
+            width:10em;
+        }
+
+        input.no-spin::-webkit-outer-spin-button,
+        input.no-spin::-webkit-inner-spin-button {
+            /* http://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-inputs-spin-box */
+            /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="page-header">
+            <h1>Validation Utility <small>demo</small></h1>
+        </div>
+        <form id="home-data-form">
+            <div class="col-sm-5">
+                <div class="row">
+                    <div class="col-sm-11">
+
+
+
+
+
+
+
+                        <input id="streetAddress" 
+                            name="streetAddress" 
+                            type="text" 
+                            class="full form-control" 
+                            required autofocus
+                            data-role="validate"
+                            title="Street Address"
+                            data-content="The Street Address is required."
+                            placeholder="street address" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <br />
+
+                        <input id="streeAddress2" name="city" 
+                            data-bind="value: model.streetAddress2" 
+                            type="text" class="full form-control" 
+                            placeholder="suite, apt. #, etc." /><br />
+
+                        <input id="city" name="city" data-bind="value: model.city" 
+                            title="City"
+                            data-role="validate"
+                            data-content="City is required."
+                            type="text" class="small form-control inline" 
+                            placeholder="city" required /> CA 
+
+                        <input id="zipCode" name="zipCode" 
+                            title="Zip Code"
+                            data-role="validate"
+                            data-content="Zip Code required."
+                            type="number" class="form-control inline no-spin small push-right" 
+                            placeholder="zip code" required />
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="form-horizontal">
+
+                    <div class="form-group stats">
+                        <div class="col-sm-3"><label for="bedrooms">Price</label></div>
+                        <div class="col-sm-6"><input 
+                            title="Price"
+                            data-role="validate"
+                            data-content="Price is required."
+                            id="price" name="price"
+                            type="number" class="form-control no-spin small" required /></div>
+                    </div>
+
+                    <div class="form-group stats">
+                        <div class="col-sm-3"><label for="bedrooms">Bedrooms</label></div>
+                        <div class="col-sm-6"><input 
+                            id="bedrooms" name="bedrooms"
+                            title="Bedrooms"
+                            data-role="validate"
+                            data-content="The number of bedrooms is required."
+                            type="number" class="form-control no-spin small" required /></div>
+                    </div>
+
+                    <div class="form-group stats">
+                        <div class="col-sm-3">
+                            <label for="bathrooms">Bathrooms</label></div>
+                        <div class="col-sm-6"><input 
+                            id="bathrooms" name="bathrooms" 
+                            title="Bathrooms"
+                            data-role="validate"
+                            data-content="The number of bathrooms is required."
+                            type="number" class="form-control no-spin small" required /></div>
+                    </div>
+
+                    <div class="form-group stats">
+                        <div class="col-sm-3">
+                            <label for="square-feet">Square Feet</label></div>
+                        <div class="col-sm-6"><input 
+                            id="square-feet" name="square-feet" 
+                            title="Square Feet"
+                            data-role="validate"
+                            data-content="The square feet of the home is required."
+                            type="number" class="form-control no-spin small" required /></div>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="row">
+                    <div class="col-sm-11">
+                        <label for="description">Description</label>
+                        <textarea 
+                            id="description" name="description"
+                            class="full form-control" required
+                            title="Description"
+                            data-role="validate"
+                            data-content="A description is required."></textarea>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="row">
+                    <div class="col-sm-11">
+                        <div id="command-buttons" class="pull-right">
+                            <button id="submit-button" type="button" 
+                                class="btn btn-primary btn-large push-right cmd">
+                                Save</button>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </form>
+    </section>
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/validationUtility.js"></script>
+    <script>
+        $(function() {
+            $('#submit-button').click(function() {
+                var validationUtility = new ValidationUtility();
+
+                if (validationUtility.validate('home-data-form')) {
+                    alert('Validation Success!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
