@@ -1,8 +1,7 @@
 ﻿CACHE MANIFEST
 # debug
 
-@*
-# @AppendHash approach from @@ShirtlessKirk via http://bit.ly/12HlyCD
+# AppendHash approach from @@ShirtlessKirk via http://bit.ly/12HlyCD
 # @Url.Content("/views/home/Index.cshtml").AppendHash(Request)
 # @Url.Content("/views/offline/Index.cshtml").AppendHash(Request)
 # @Url.Content("/views/offline/Fallback.cshtml").AppendHash(Request)
@@ -17,12 +16,14 @@
 # @Url.Content("/fonts/glyphicons-halflings-regular.svg").AppendHash(Request)
 # @Url.Content("/fonts/glyphicons-halflings-regular.ttf").AppendHash(Request)
 # @Url.Content("/fonts/glyphicons-halflings-regular.woff").AppendHash(Request)
-*@
 
 @Html.Partial("Manifest-Partial")
 
 @{
     Layout = null;
 }
+
+NEWORK:
+/some-fake-page-on-your-server-to-force-the-offline-event.html
 
 @using Offline.Utilities

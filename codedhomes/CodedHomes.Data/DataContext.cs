@@ -42,10 +42,10 @@ namespace CodedHomes.Data
             modelBuilder.Configurations.Add(new HomeConfiguration());
             modelBuilder.Configurations.Add(new UserConfiguration());
 
-            // Add ASP.NET WebPages SimpleSecurity tables
+            // Add ASP.NET WebPages SimpleMembership tables
             modelBuilder.Configurations.Add(new RoleConfiguration());
-            modelBuilder.Configurations.Add(new OAuthMembershipConfiguration());
             modelBuilder.Configurations.Add(new MembershipConfiguration());
+            modelBuilder.Configurations.Add(new OAuthMembershipConfiguration());
 
             //base.OnModelCreating(modelBuilder);
         }

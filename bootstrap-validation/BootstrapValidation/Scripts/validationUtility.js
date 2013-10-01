@@ -24,7 +24,7 @@
             formSelector = '#' + formSelector;
         }
 
-        return $(formSelector)[0].checkValidity();
+        return $(formSelector).get(0).checkValidity();
     };
 
     return {

@@ -46,15 +46,17 @@
 
 
 
-                        <input id="streetAddress" 
-                            name="streetAddress" 
+                        <input 
                             type="text" 
-                            class="full form-control" 
+                            id="streetAddress" 
+                            name="streetAddress" 
+                            class="form-control" 
                             required autofocus
-                            data-role="validate"
+                            placeholder="street address"
                             title="Street Address"
                             data-content="The Street Address is required."
-                            placeholder="street address" />
+                            data-role="validate"
+                             />
 
 
 
@@ -169,7 +171,10 @@
                 <div class="row">
                     <div class="col-sm-11">
                         <div id="command-buttons" class="pull-right">
-                            <button id="submit-button" type="button" 
+                            <button id="submit-button" 
+                                type="button"
+                                title="Valid!"
+                                data-content=""
                                 class="btn btn-primary btn-large push-right cmd">
                                 Save</button>
                         </div>
@@ -184,10 +189,13 @@
     <script>
         $(function() {
             $('#submit-button').click(function() {
+
                 var validationUtility = new ValidationUtility();
 
                 if (validationUtility.validate('home-data-form')) {
-                    alert('Validation Success!');
+                    var $this = $(this);
+                    $this.popover({ placement: 'top' });
+                    $this.popover('show');
                 }
             });
         });

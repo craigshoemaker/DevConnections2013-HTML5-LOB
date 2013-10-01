@@ -123,6 +123,7 @@ namespace CodedHomes.Web.Controllers
         [AllowAnonymous]
         public ActionResult Offline()
         {
+            this.Response.Cache.SetCacheability(HttpCacheability.NoCache);
             return View();
         }
 

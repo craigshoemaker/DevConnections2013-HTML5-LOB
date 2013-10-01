@@ -25,12 +25,13 @@ var OfflineUtility = function(onlineCallback, offlineCallback, pollingUrl) {
 
     var currentEventName = 'unknown';
 
-    var fireEvent = function(name, data) {
-        var e = document.createEvent("Event");
-        e.initEvent(name, true, true);
-        e.data = data;
-        window.dispatchEvent(e);
-    },
+    var
+        fireEvent = function(name, data) {
+            var e = document.createEvent("Event");
+            e.initEvent(name, true, true);
+            e.data = data;
+            window.dispatchEvent(e);
+        },
 
         fireEventIfStatusChanges = function(eventName) {
             if (currentEventName != eventName) {

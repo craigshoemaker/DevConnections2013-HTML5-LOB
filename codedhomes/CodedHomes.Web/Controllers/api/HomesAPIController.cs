@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace CodedHomes.Web.Controllers
 {
-    [Authorize]
+    [System.Web.Http.Authorize]
     public class HomesAPIController : ApiController
     {
         private ApplicationUnit _unit = new ApplicationUnit();
@@ -35,6 +35,7 @@ namespace CodedHomes.Web.Controllers
             return home;
         }
 
+        [HttpPut]
         [System.Web.Http.Authorize(Roles = "admin, manager, user")]
         public HttpResponseMessage Put(int id, Home home)
         {
