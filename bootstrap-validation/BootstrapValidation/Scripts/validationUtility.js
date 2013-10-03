@@ -1,30 +1,47 @@
 ﻿var ValidationUtility = function() {
-    var validationElements = $('[data-role="validate"]');
-    var elementCount;
+    var _validationElements = $('[data-role="validate"]');
+    var
+        _elementCount,
+        _successCallback,
+        _failCallback;
 
-    validationElements.popover({
+    _validationElements.popover({
         placement: 'top'
     });
 
-    validationElements.on('invalid', function() {
-        if (elementCount === 0) {
-            $('#' + this.id).popover('show');
-            elementCount++;
+    _validationElements.on('invalid', function() {
+        if (_elementCount > 0) {
+            return;
         }
+
+        _elementCount++;
+
+        var $this = $('#' + this.id);
+        $this.popover('show');
+        $this.parents('.form-group').addClass('has-error');
+
+        _failCallback(this);
     });
 
-    validationElements.on('blur', function() {
+    _validationElements.on('blur', function() {
         $('#' + this.id).popover('hide');
     });
 
-    var validate = function(formSelector) {
-        elementCount = 0;
+    var validate = function(formSelector, successCallback, failCallback) {
+        _elementCount = 0;
+
+        _successCallback = successCallback;
+        _failCallback = failCallback;
+
+        $('.has-error').removeClass('has-error');
 
         if (formSelector.indexOf('#') === -1) {
             formSelector = '#' + formSelector;
         }
 
-        return $(formSelector).get(0).checkValidity();
+        if ($(formSelector).get(0).checkValidity()) {
+            _successCallback();
+        }
     };
 
     return {
