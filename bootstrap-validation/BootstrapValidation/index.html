@@ -190,13 +190,17 @@
         $(function() {
             $('#submit-button').click(function() {
 
-                var validationUtility = new ValidationUtility();
+                var
+                    $this = $(this),
+                    validationUtility = new ValidationUtility();
 
-                if (validationUtility.validate('home-data-form')) {
-                    var $this = $(this);
+                if (validationUtility.validate('home-data-form', function() {
+                    //TODO: page-specific success logic
                     $this.popover({ placement: 'top' });
                     $this.popover('show');
-                }
+                }, function() {
+                    //TODO: page-specific fail logic
+                }));
             });
         });
     </script>
